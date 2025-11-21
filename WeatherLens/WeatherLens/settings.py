@@ -166,6 +166,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 WEATHER_API_KEY = os.environ.get("WEATHER_API_KEY")
 
 # Admin bootstrap superuser
-ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "krish")
+ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "jaikrishna")
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "1234")
 ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "admin@example.com")

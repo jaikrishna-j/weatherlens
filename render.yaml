@@ -20,7 +20,7 @@ services:
       - key: CSRF_TRUSTED_ORIGINS
         value: "https://weatherlens.onrender.com"
       - key: ADMIN_USERNAME
-        value: "krish"
+        value: "jaikrishna"
       - key: ADMIN_PASSWORD
         value: "1234"
       - key: ADMIN_EMAIL

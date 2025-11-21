@@ -2,8 +2,11 @@ __pycache__/
 *.pyc
 db.sqlite3
 .env
+.env.example
 myenv/
 *.log
 .DS_Store
+DEPLOYMENT.md
 node_modules/
+staticfiles/
 
