@@ -3,6 +3,7 @@ __pycache__/
 db.sqlite3
 .env
 .env.example
+.env.local
 myenv/
 *.log
 .DS_Store

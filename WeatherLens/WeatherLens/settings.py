@@ -18,8 +18,21 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Load environment variables from .env for local development
-load_dotenv(BASE_DIR / ".env")
+# Load environment variables. Prefer a developer-specific `.env.local` when it exists
+# so we can keep a production `.env` (or Render-managed env vars) separate.
+DOTENV_CANDIDATES = [
+    BASE_DIR / ".env.local",
+    BASE_DIR.parent / ".env.local",
+    BASE_DIR / ".env",
+    BASE_DIR.parent / ".env",
+]
+for dotenv_path in DOTENV_CANDIDATES:
+    if dotenv_path.exists():
+        load_dotenv(dotenv_path)
+        break
+else:
+    # As a fallback, let python-dotenv look up the tree automatically if neither file exists.
+    load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
