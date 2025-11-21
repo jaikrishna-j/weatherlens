@@ -4,7 +4,7 @@ services:
     env: python
     plan: free
     buildCommand: "./build.sh"
-    startCommand: "bash -c 'cd WeatherLens && gunicorn WeatherLens.wsgi:application'"
+    startCommand: "bash -c 'cd WeatherLens && gunicorn WeatherLens.wsgi:application --bind 0.0.0.0:$PORT'"
     autoDeploy: true
     envVars:
       - key: PYTHON_VERSION
@@ -16,9 +16,9 @@ services:
       - key: DEBUG
         value: "False"
       - key: ALLOWED_HOSTS
-        value: "weatherlens.onrender.com"
+        value: "weatherlens-zqot.onrender.com,weatherlens.onrender.com"
       - key: CSRF_TRUSTED_ORIGINS
-        value: "https://weatherlens.onrender.com"
+        value: "https://weatherlens-zqot.onrender.com,https://weatherlens.onrender.com"
       - key: ADMIN_USERNAME
         value: "jaikrishna"
       - key: ADMIN_PASSWORD
