@@ -13,9 +13,9 @@
 
 <body class="h-screen overflow-hidden text-white antialiased weather-body {{ description|default:'mist'|slugify }}">
     <div class="mx-auto flex h-screen w-full max-w-7xl flex-col justify-center gap-2 px-3 py-3 sm:gap-3 sm:px-4 sm:py-4 lg:gap-4 lg:px-6 lg:py-5">
-        <main class="weather-shell {{ description|default:'mist'|slugify }} grid h-full max-h-[95vh] w-full gap-4 p-3 sm:gap-5 sm:p-4 lg:grid-cols-[minmax(280px,320px),1fr] lg:gap-6 lg:p-5 xl:p-6">
+        <main class="weather-shell {{ description|default:'mist'|slugify }} grid h-full max-h-[95vh] w-full items-stretch gap-4 p-3 sm:gap-5 sm:p-4 lg:grid-cols-[minmax(280px,320px),1fr] lg:gap-6 lg:p-5 xl:p-6">
 
-            <section class="glass-panel flex flex-col gap-4 overflow-y-auto lg:overflow-y-hidden p-3 sm:gap-5 sm:p-4 lg:p-5 animate-slide-in-left">
+            <section class="glass-panel flex h-full flex-col gap-4 overflow-y-auto lg:overflow-y-hidden p-3 sm:gap-5 sm:p-4 lg:p-5 animate-slide-in-left">
                 <div class="relative">
                     <form method="POST" class="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-3 py-2 focus-within:border-white/40 sm:gap-3 sm:px-4 animate-fade-in-up animate-delay-200">
                         {% csrf_token %}
@@ -43,7 +43,7 @@
                 </div>
                 {% endif %}
 
-                <div class="flex flex-col gap-3 text-center sm:gap-4">
+                <div class="flex flex-1 flex-col gap-3 text-center sm:gap-4 justify-center">
                     <p class="panel-heading animate-fade-in-up animate-delay-300">Current temperature</p>
                     <div class="animate-bounce-in animate-delay-400">
                         <p class="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
@@ -75,7 +75,7 @@
                 </div>
             </section>
 
-            <section class="flex flex-col gap-4 overflow-y-auto lg:overflow-y-hidden sm:gap-5 lg:gap-6 animate-slide-in-right">
+            <section class="flex h-full flex-col gap-4 overflow-y-auto lg:overflow-y-hidden sm:gap-5 lg:gap-6 animate-slide-in-right">
                 <div class="flex flex-col gap-3 rounded-3xl border border-white/10 bg-white/5 p-3 backdrop-blur-md sm:gap-4 sm:p-4 animate-fade-in-up animate-delay-200">
                     <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
                         <div class="flex-1">
@@ -97,7 +97,7 @@
                     </div>
                 </div>
 
-                <div class="rounded-3xl border border-white/10 bg-white/5 p-3 backdrop-blur-md sm:p-4 animate-fade-in-up animate-delay-400">
+                <div class="rounded-3xl border border-white/10 bg-white/5 p-3 backdrop-blur-md sm:p-4 animate-fade-in-up animate-delay-400 flex-1 flex flex-col">
                     <div class="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between animate-fade-in animate-delay-500">
                         <p class="text-xs uppercase tracking-[0.35em] text-white/60 sm:text-sm">Hourly outlook</p>
                         <span class="text-xs text-white/60">Next 5 hours</span>
@@ -160,7 +160,7 @@
                         </li>
                     </ul>
 
-                    <div class="h-[200px] w-full sm:h-[220px] lg:h-[200px] xl:h-[220px] animate-fade-in animate-delay-700">
+                    <div class="mt-auto h-[200px] w-full sm:h-[220px] lg:h-[200px] xl:h-[220px] animate-fade-in animate-delay-700">
                         <canvas id="chart" class="h-full w-full"></canvas>
                     </div>
                 </div>
