@@ -1,4 +1,4 @@
-# Weatherlens
+# Weather Prediction Forecasting
 
 Weatherlens is an end‑to‑end weather prediction workflow: all modeling, feature engineering, and evaluation live in `Weather Prediction.ipynb`, and the trained outputs are surfaced through a lightweight Django UI for quick inspection. The primary artefact is the notebook—the web layer simply exposes the prediction results to non-technical users.
 
@@ -33,4 +33,8 @@ Every experiment, plot, and discussion of algorithm trade-offs is documented dir
    ```
 
 ## Interface Preview
-`assets/first-screen.png` shows the empty state, and `assets/result-screen.png` captures a sample prediction rendered through the Django view.
+- ![Landing state](assets/first-screen.png)  
+  Initial page before inference. Prompts for city input, confirms connection to the trained estimators, and displays placeholder panels ready to host the forecast outputs.
+
+- ![Prediction sample](assets/result-screen.png)  
+  Same layout populated with real predictions from the notebook-trained stack: headline weather description, key meteo metrics, and the five-hour temperature trajectory pulled directly from the serialized models.
