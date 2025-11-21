@@ -1,45 +1,41 @@
 # Weather Prediction Forecasting
 
-Weatherlens is an end‑to‑end workflow where `Weather Prediction.ipynb` performs all machine-learning tasks—data prep, algorithm training, validation, and artifact export—while Django merely relays the serialized predictions to end users. Treat the notebook as the single source of truth for methodology.
+Weatherlens is an end‑to‑end workflow I built around a multi-model forecasting pipeline: engineered features feed tree-based regressors for temperature and humidity, an autoregressive component stabilizes barometric pressure trends, and I serialize the orchestrated outputs for real-time serving through Django. The stack emphasizes reproducible preprocessing, deterministic training, and predictable inference handoffs.
 
 ## Data & Feature Engineering
-- `weather.csv`: multi-year hourly measurements for temperature, humidity, pressure, wind, cloud cover, and visibility.
-- pandas + numpy: handle ingestion, timezone normalization, and datatype coercion.
-- Missing values: forward-fill short gaps; median imputation for longer outages; pressure/wind derived fields clipped to physical bounds.
-- Temporal features: sine/cosine encodings for hour-of-day/day-of-year to preserve continuity, plus lagged differentials for short-term momentum.
-- Scaling: z-score normalization per feature group; categorical weather codes one-hot encoded when present.
+- I source multi-year hourly measurements from `weather.csv`, covering temperature, humidity, pressure, wind, cloud cover, and visibility.
+- I rely on pandas and numpy for ingestion, timezone normalization, and datatype coercion.
+- I forward-fill short gaps, apply median backstops for longer outages, and clip pressure/wind derivatives to realistic bounds.
+- I encode temporal signals with sine/cosine pairs (hour-of-day, day-of-year) and add lagged differentials to capture short-term momentum.
+- I normalize feature groups with z-score scaling and one-hot encode categorical weather codes when they appear.
 
 ## Modeling Architecture
-- scikit-learn RandomForestRegressor (multi-output) targets min/max/feels-like temperatures simultaneously to preserve internal correlation.
-- GradientBoostingRegressor predicts humidity and cloud cover, leveraging shallow depth to prevent overfitting noisy signals.
-- statsmodels-driven ARIMA residual layer captures long-range pressure drift and corrects tree-based residuals.
-- Ensemble inference: outputs blended via weighted averaging derived from validation MAE; uncertainty estimated through RF variance.
-- joblib persists every fitted estimator and preprocessing pipeline for reuse by Django.
+- I train a multi-output scikit-learn `RandomForestRegressor` so min, max, and feels-like temperatures stay correlated.
+- I deploy a `GradientBoostingRegressor` for humidity and cloud cover; shallow depth curbs overfitting on noisy readings.
+- I bolt on a statsmodels ARIMA residual layer to capture slow barometric drift and feed corrections back into the ensemble.
+- I blend model outputs using weights tuned on validation MAE and estimate uncertainty from Random Forest variance statistics.
+- I persist every fitted estimator and preprocessing pipeline via joblib for downstream reuse.
 
 ## Evaluation Strategy
-- Rolling-origin train/validation split ensures chronological integrity; each fold advances by 24 hours to mimic real operations.
-- Metrics: MAE, RMSE, mean absolute scaled error (MASE) versus climatology baseline, and Pearson correlation for humidity trajectories.
-- seaborn/matplotlib: diagnostic plots for feature importances, residual distributions, and forecast-vs-observation timelines.
-- statsmodels `acf`/`pacf` guides lag selection and confirms that residual autocorrelation stays within confidence bounds.
+- I use a rolling-origin train/validation schedule that advances 24 hours per fold to respect chronology.
+- I track MAE, RMSE, MASE (against climatology), and Pearson correlation for humidity trajectories.
+- I generate diagnostic plots with seaborn/matplotlib for feature importance, residual shape, and forecast-vs-observation comparisons.
+- I use statsmodels `acf`/`pacf` to choose lag windows and to ensure residual autocorrelation sits inside confidence bounds.
 
 ## Serving & Integration
-- Django app `WeatherLens/forecast` loads the serialized pipelines once per process and maintains them in memory for low-latency inference.
-- View layer orchestrates preprocessing (same steps as notebook via joblib pipeline), executes predictions, converts SI units, and passes context into `weather.html`.
-- Front-end JavaScript only draws the hourly curve; all algorithmic logic remains in Python to guarantee parity with the notebook experiments.
+- I keep the Django app `WeatherLens/forecast` lightweight: it loads the serialized pipelines once and keeps them warm for low-latency inference.
+- I mirror notebook preprocessing inside the view so new requests flow through the exact same transformations before prediction.
+- I convert SI units, format strings, and pass structured context into `weather.html`; front-end JavaScript only renders the five-hour chart.
 
 ## Repro / Local Execution
-- Create environment and install dependencies:
-  - `pip install -r requirements.txt`
-- Open `Weather Prediction.ipynb`:
-  - rerun cells to retrain models, adjust hyperparameters, or regenerate evaluation plots.
-  - export updated estimators via joblib dump paths referenced in `forecast/views.py`.
-- Launch Django for visualization:
-  - `python WeatherLens/manage.py runserver`
-- Optional: use provided `weather.csv` or extend the dataset; notebook cells document how to append new data slices safely.
+- Create the environment and install dependencies: `pip install -r requirements.txt`.
+- Open the notebook to retrain or tweak models, then export fresh joblib artifacts to the paths consumed by `forecast/views.py`.
+- Launch the Django server with `python WeatherLens/manage.py runserver` to validate end-to-end behavior.
+- Optionally extend `weather.csv`; the notebook documents how I append new data slices without compromising historical splits.
 
 ## Interface Preview
-- ![Landing state](assets/first-screen.png)  
-  Empty-state panel rendered before inference; verifies the Django layer is live, highlights the city search field, and shows placeholder cards awaiting notebook-derived metrics.
+- <img src="assets/first-screen.png" alt="Landing state" width="640" />  
+  I use this empty-state panel to confirm the Django layer is live, highlight the search entry point, and show the placeholders awaiting metrics.
 
-- ![Prediction sample](assets/result-screen.png)  
-  Populated state featuring actual predictions from the Random Forest + Gradient Boost + ARIMA ensemble: includes textual weather summary, key meteorological KPIs, and a five-hour temperature trajectory driven entirely by the trained pipelines.
+- <img src="assets/result-screen.png" alt="Prediction sample" width="640" />  
+  This populated view demonstrates how the Random Forest + Gradient Boost + ARIMA ensemble surfaces headline weather, KPI blocks, and a five-hour temperature trajectory directly from the trained pipelines.
