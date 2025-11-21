@@ -9,4 +9,5 @@ pytz
 python-dotenv
 gunicorn
 whitenoise
+psycopg[binary]
 
