@@ -12,7 +12,7 @@ services:
       - key: SECRET_KEY
         sync: false
       - key: WEATHER_API_KEY
-        sync: false
+        value: "4f11761b24243b03d59507095ac919f9"
       - key: DEBUG
         value: "False"
       - key: ALLOWED_HOSTS
