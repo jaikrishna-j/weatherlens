@@ -1,6 +1,6 @@
 # Weather Prediction Forecasting
 
-Weatherlens is an end‑to‑end workflow built around a multi-model forecasting pipeline: engineered features feed tree-based regressors for temperature and humidity, an autoregressive component stabilizes barometric pressure trends, and the orchestrated outputs are serialized for real-time serving through Django. The stack emphasizes reproducible preprocessing, deterministic training, and predictable inference handoffs.
+Weatherlens is an end‑to‑end workflow built around a multi-model forecasting pipeline: engineered features feed tree-based regressors for temperature and humidity, an autoregressive component stabilizes barometric pressure trends, and the orchestrated outputs are serialized for real-time serving through Django. The stack emphasizes reproducible preprocessing, deterministic training, and predictable inference handoffs. A live deployment is available for hands-on validation at [weatherlens-zqot.onrender.com](https://weatherlens-zqot.onrender.com/).
 
 ## Data & Feature Engineering
 - Multi-year hourly measurements from `weather.csv` include temperature, humidity, pressure, wind, cloud cover, and visibility.
@@ -34,6 +34,12 @@ Weatherlens is an end‑to‑end workflow built around a multi-model forecasting
 - Optionally extend `weather.csv`; notebook guidance shows how to append new data slices without compromising historical splits.
 
 ## Interface Preview
-- <img src="assets/first-screen.png" alt="Landing state" width="640" style="vertical-align:middle;margin-right:12px;" /> Empty-state panel confirming the Django layer is live, highlighting the search entry point, and showing placeholders awaiting metrics.
+- <div>
+    <img src="assets/first-screen.png" alt="Landing state" width="640" />
+    <p>Empty-state panel confirming the Django layer is live, highlighting the search entry point, and showing placeholders awaiting metrics.</p>
+  </div>
 
-- <img src="assets/result-screen.png" alt="Prediction sample" width="640" style="vertical-align:middle;margin-right:12px;" /> Populated view demonstrating how the Random Forest + Gradient Boost + ARIMA ensemble surfaces headline weather, KPI blocks, and a five-hour temperature trajectory directly from the trained pipelines.
+- <div>
+    <img src="assets/result-screen.png" alt="Prediction sample" width="640" />
+    <p>Populated view demonstrating how the Random Forest + Gradient Boost + ARIMA ensemble surfaces headline weather, KPI blocks, and a five-hour temperature trajectory directly from the trained pipelines.</p>
+  </div>
