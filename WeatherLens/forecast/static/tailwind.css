@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply min-h-screen bg-neutral-950 text-white font-body;
+  }
+
+  main.weather-shell {
+    @apply relative isolate overflow-hidden rounded-[32px] shadow-glass;
+    background-size: cover;
+    background-position: center;
+  }
+
+  main.weather-shell::after {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/40 pointer-events-none;
+  }
+
+  main.weather-shell > * {
+    @apply relative z-10;
+  }
+
+  main.clouds,
+  main.cloudy,
+  main.few-clouds,
+  main.scattered-clouds,
+  main.broken-clouds,
+  main.overcast-clouds {
+    background-image: url('../img/cloudy.jpeg');
+  }
+
+  main.sunny,
+  main.clear,
+  main.clear-sky {
+    background-image: url('../img/sunny.jpeg');
+  }
+
+  main.overcast {
+    background-image: url('../img/overcast.jpeg');
+  }
+
+  main.mist,
+  main.haze,
+  main.smoke,
+  main.fog {
+    background-image: url('../img/mist.jpeg');
+  }
+
+  main.rain,
+  main.light-rain,
+  main.moderate-rain,
+  main.heavy-rain,
+  main.shower,
+  main.showers {
+    background-image: url('../img/rain.jpeg');
+  }
+
+  main.drizzle {
+    background-image: url('../img/drizzle.jpeg');
+  }
+
+  main.thunder,
+  main.thundery {
+    background-image: url('../img/thunder.jpeg');
+  }
+
+  main.snow,
+  main.blizzard,
+  main.sleet {
+    background-image: url('../img/snow.jpeg');
+  }
+
+  main.ice {
+    background-image: url('../img/ice.jpeg');
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply rounded-3xl bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .panel-heading {
+    @apply text-xs uppercase tracking-[0.35em] text-white/70 font-medium;
+  }
+
+  .stat-label {
+    @apply text-xs text-white/60;
+  }
+
+  .stat-value {
+    @apply text-2xl font-semibold text-white;
+  }
+
+  .forecast-card {
+    @apply flex flex-col gap-1 rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-center transition hover:bg-white/10 sm:px-4 sm:py-3;
+  }
+}
+
+@layer utilities {
+  @media (max-width: 640px) {
+    main.weather-shell {
+      @apply rounded-2xl;
+    }
+  }
+}
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="{% static 'img/site-pic.ico' %}" type="image/icon type"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+    <title>Weatherlens</title>
+</head>
+
+<body class="h-screen overflow-hidden text-white antialiased weather-body {{ description|default:'mist'|slugify }}">
+    <div class="mx-auto flex h-screen w-full max-w-7xl flex-col justify-center gap-2 px-3 py-3 sm:gap-3 sm:px-4 sm:py-4 lg:gap-4 lg:px-6 lg:py-5">
+        <main class="weather-shell {{ description|default:'mist'|slugify }} grid h-full max-h-[95vh] w-full gap-4 p-3 sm:gap-5 sm:p-4 lg:grid-cols-[minmax(280px,320px),1fr] lg:gap-6 lg:p-5 xl:p-6">
+
+            <section class="glass-panel flex flex-col gap-4 overflow-y-auto lg:overflow-y-hidden p-3 sm:gap-5 sm:p-4 lg:p-5 animate-slide-in-left">
+                <div class="relative">
+                    <form method="POST" class="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-3 py-2 focus-within:border-white/40 sm:gap-3 sm:px-4 animate-fade-in-up animate-delay-200">
+                        {% csrf_token %}
+                        <svg class="h-5 w-5 flex-shrink-0 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-4.35-4.35M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/>
+                        </svg>
+                        <input 
+                            type="text"
+                            name="city"
+                            id="city-input"
+                            autocomplete="off"
+                            class="flex-1 min-w-0 bg-transparent text-sm font-medium text-white placeholder:text-white/40 focus:outline-none"
+                            placeholder="Search city, country"
+                            value="{{ location|default:'' }}"
+                        />
+                        <button type="submit" class="flex-shrink-0 rounded-full bg-white/10 px-2.5 py-1 text-[8px] font-semibold uppercase tracking-wide text-white transition hover:bg-white/20 leading-tight sm:px-3 sm:text-[9px] lg:px-3.5 lg:text-[10px]">
+                            Search
+                        </button>
+                    </form>
+                </div>
+
+                {% if error %}
+                <div class="rounded-2xl border border-red-500/50 bg-red-500/10 px-4 py-3 text-center animate-fade-in-up">
+                    <p class="text-sm font-medium text-red-200 sm:text-base">{{ error }}</p>
+                </div>
+                {% endif %}
+
+                <div class="flex flex-col gap-3 text-center sm:gap-4">
+                    <p class="panel-heading animate-fade-in-up animate-delay-300">Current temperature</p>
+                    <div class="animate-bounce-in animate-delay-400">
+                        <p class="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+                            {{ current_temp|default:'--' }}°
+                        </p>
+                        <p class="mt-1 text-xs text-white/60 sm:text-sm animate-fade-in animate-delay-500">
+                            Feels like {{ feels_like|default:'--' }}°
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                        <div class="flex flex-col gap-1 animate-fade-in-up animate-delay-500">
+                            <span class="stat-label">Humidity</span>
+                            <span class="text-xl font-semibold sm:text-2xl lg:text-3xl">{{ humidity|default:'--' }}%</span>
+                        </div>
+                        <div class="flex flex-col gap-1 animate-fade-in-up animate-delay-600">
+                            <span class="stat-label">Cloud cover</span>
+                            <span class="text-xl font-semibold sm:text-2xl lg:text-3xl">{{ clouds|default:'--' }}%</span>
+                        </div>
+                        <div class="flex flex-col gap-1 animate-fade-in-up animate-delay-500">
+                            <span class="stat-label">Max temp</span>
+                            <span class="text-base font-semibold sm:text-lg lg:text-xl">{{ MaxTemp|default:'--' }}°</span>
+                        </div>
+                        <div class="flex flex-col gap-1 animate-fade-in-up animate-delay-600">
+                            <span class="stat-label">Min temp</span>
+                            <span class="text-base font-semibold sm:text-lg lg:text-xl">{{ MinTemp|default:'--' }}°</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="flex flex-col gap-4 overflow-y-auto lg:overflow-y-hidden sm:gap-5 lg:gap-6 animate-slide-in-right">
+                <div class="flex flex-col gap-3 rounded-3xl border border-white/10 bg-white/5 p-3 backdrop-blur-md sm:gap-4 sm:p-4 animate-fade-in-up animate-delay-200">
+                    <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+                        <div class="flex-1">
+                            <p class="panel-heading">Weather forecast</p>
+                            <h1 class="text-xl font-display capitalize tracking-tight sm:text-2xl lg:text-3xl">
+                                {{ description|default:'Weather forecast' }}
+                            </h1>
+                        </div>
+                        <div class="text-left text-xs text-white/70 sm:ml-auto sm:text-right sm:text-sm">
+                            <p>{{ city|default:'—' }}, {{ country|default:'' }}</p>
+                            <p>{{ time|default:'--' }}</p>
+                        </div>
+                    </div>
+
+                    <div class="grid gap-2 text-xs text-white/80 sm:grid-cols-2 sm:gap-3 sm:text-sm lg:grid-cols-3">
+                        <p>Wind <span class="font-semibold text-white">{{ wind|default:'--' }}</span> km/h</p>
+                        <p>Pressure <span class="font-semibold text-white">{{ pressure|default:'--' }}</span> mb</p>
+                        <p>Visibility <span class="font-semibold text-white">{{ visibility|default:'--' }}</span> m</p>
+                    </div>
+                </div>
+
+                <div class="rounded-3xl border border-white/10 bg-white/5 p-3 backdrop-blur-md sm:p-4 animate-fade-in-up animate-delay-400">
+                    <div class="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between animate-fade-in animate-delay-500">
+                        <p class="text-xs uppercase tracking-[0.35em] text-white/60 sm:text-sm">Hourly outlook</p>
+                        <span class="text-xs text-white/60">Next 5 hours</span>
+                    </div>
+
+                    <ul class="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-2 lg:grid-cols-5 mb-3 sm:mb-4">
+                        <li class="forecast-item forecast-card animate-fade-in-up animate-delay-500">
+                            <p class="forecast-time text-xs font-medium text-white/70 sm:text-sm">{{ time1|default:'--' }}</p>
+                            <p class="text-2xl font-semibold sm:text-3xl">
+                                <span class="forecast-temperatureValue">{{ temp1|default:'--' }}</span>°
+                            </p>
+                            <p class="text-[10px] text-white/60 sm:text-xs">
+                                Humidity:
+                                <span class="forecast-humidityValue font-semibold text-white">{{ hum1|default:'--' }}</span>
+                            </p>
+                        </li>
+
+                        <li class="forecast-item forecast-card animate-fade-in-up animate-delay-600">
+                            <p class="forecast-time text-xs font-medium text-white/70 sm:text-sm">{{ time2|default:'--' }}</p>
+                            <p class="text-2xl font-semibold sm:text-3xl">
+                                <span class="forecast-temperatureValue">{{ temp2|default:'--' }}</span>°
+                            </p>
+                            <p class="text-[10px] text-white/60 sm:text-xs">
+                                Humidity:
+                                <span class="forecast-humidityValue font-semibold text-white">{{ hum2|default:'--' }}</span>
+                            </p>
+                        </li>
+
+                        <li class="forecast-item forecast-card animate-fade-in-up animate-delay-700">
+                            <p class="forecast-time text-xs font-medium text-white/70 sm:text-sm">{{ time3|default:'--' }}</p>
+                            <p class="text-2xl font-semibold sm:text-3xl">
+                                <span class="forecast-temperatureValue">{{ temp3|default:'--' }}</span>°
+                            </p>
+                            <p class="text-[10px] text-white/60 sm:text-xs">
+                                Humidity:
+                                <span class="forecast-humidityValue font-semibold text-white">{{ hum3|default:'--' }}</span>
+                            </p>
+                        </li>
+
+                        <li class="forecast-item forecast-card animate-fade-in-up animate-delay-500">
+                            <p class="forecast-time text-xs font-medium text-white/70 sm:text-sm">{{ time4|default:'--' }}</p>
+                            <p class="text-2xl font-semibold sm:text-3xl">
+                                <span class="forecast-temperatureValue">{{ temp4|default:'--' }}</span>°
+                            </p>
+                            <p class="text-[10px] text-white/60 sm:text-xs">
+                                Humidity:
+                                <span class="forecast-humidityValue font-semibold text-white">{{ hum4|default:'--' }}</span>
+                            </p>
+                        </li>
+
+                        <li class="forecast-item forecast-card animate-fade-in-up animate-delay-600">
+                            <p class="forecast-time text-xs font-medium text-white/70 sm:text-sm">{{ time5|default:'--' }}</p>
+                            <p class="text-2xl font-semibold sm:text-3xl">
+                                <span class="forecast-temperatureValue">{{ temp5|default:'--' }}</span>°
+                            </p>
+                            <p class="text-[10px] text-white/60 sm:text-xs">
+                                Humidity:
+                                <span class="forecast-humidityValue font-semibold text-white">{{ hum5|default:'--' }}</span>
+                            </p>
+                        </li>
+                    </ul>
+
+                    <div class="h-[240px] w-full sm:h-[280px] lg:h-[240px] xl:h-[260px] animate-fade-in animate-delay-700">
+                        <canvas id="chart" class="h-full w-full"></canvas>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="{% static 'js/chartSetup.js' %}"></script>
+    <script src="{% static 'js/cityAutocomplete.js' %}"></script>
+    <script>
+        // Ensure temperature stays visible after animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const tempElement = document.querySelector('.animate-bounce-in.animate-delay-400');
+            if (tempElement) {
+                // Force visibility after animation completes (400ms delay + 800ms duration = 1200ms)
+                setTimeout(() => {
+                    tempElement.style.opacity = '1';
+                    tempElement.style.transform = 'scale(1)';
+                    tempElement.classList.add('animation-complete');
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+services:
+  - type: web
+    name: weatherlens
+    env: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn WeatherLens.wsgi:application"
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: SECRET_KEY
+        sync: false
+      - key: WEATHER_API_KEY
+        sync: false
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: "weatherlens.onrender.com"
+      - key: CSRF_TRUSTED_ORIGINS
+        value: "https://weatherlens.onrender.com"
+      - key: ADMIN_USERNAME
+        value: "krish"
+      - key: ADMIN_PASSWORD
+        value: "1234"
+      - key: ADMIN_EMAIL
+        value: "admin@example.com"
+      - key: POSTGRES_DB
+        fromDatabase:
+          name: weatherlens-postgres
+          property: database
+      - key: POSTGRES_USER
+        fromDatabase:
+          name: weatherlens-postgres
+          property: user
+      - key: POSTGRES_PASSWORD
+        fromDatabase:
+          name: weatherlens-postgres
+          property: password
+      - key: POSTGRES_HOST
+        fromDatabase:
+          name: weatherlens-postgres
+          property: host
+      - key: POSTGRES_PORT
+        fromDatabase:
+          name: weatherlens-postgres
+          property: port
+databases:
+  - name: weatherlens-postgres
+    plan: free
+

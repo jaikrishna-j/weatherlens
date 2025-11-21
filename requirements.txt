@@ -1,0 +1,12 @@
+Django==5.2.8
+requests
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+pytz
+python-dotenv
+gunicorn
+whitenoise
+

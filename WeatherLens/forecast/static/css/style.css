@@ -1,0 +1,664 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap");*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }
+
+/*! tailwindcss v3.4.14 | MIT License | https://tailwindcss.com */
+/* stylelint-disable property-no-vendor-prefix, declaration-block-no-redundant-longhand-properties */
+*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none;appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}body,html{min-height:100vh;--tw-bg-opacity:1;background-color:rgb(10 10 10/var(--tw-bg-opacity));font-family:Inter,sans-serif;--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity))}main.weather-shell{position:relative;isolation:isolate;overflow:hidden;border-radius:32px;--tw-shadow:0 20px 60px rgba(0,0,0,.45);--tw-shadow-colored:0 20px 60px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);background-size:cover;background-position:50%}main.weather-shell:after{content:"";pointer-events:none;position:absolute;inset:0;background-image:linear-gradient(to bottom right,var(--tw-gradient-stops));--tw-gradient-from:rgba(0,0,0,.4) var(--tw-gradient-from-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to);--tw-gradient-to:transparent var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),rgba(0,0,0,.2) var(--tw-gradient-via-position),var(--tw-gradient-to);--tw-gradient-to:rgba(0,0,0,.4) var(--tw-gradient-to-position)}main.weather-shell>*{position:relative;z-index:10}main.broken-clouds,main.clouds,main.cloudy,main.few-clouds,main.overcast-clouds,main.scattered-clouds{background-image:url(../img/cloudy.jpeg)}main.fog,main.haze,main.mist,main.smoke{background-image:url(../img/mist.jpeg)}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.glass-panel{border-radius:1.5rem;border-width:1px;border-color:hsla(0,0%,100%,.1);background-color:hsla(0,0%,100%,.05);--tw-backdrop-blur:blur(12px);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.panel-heading{font-weight:500;text-transform:uppercase;letter-spacing:.35em;color:hsla(0,0%,100%,.7)}.panel-heading,.stat-label{font-size:.75rem;line-height:1rem}.stat-label{color:hsla(0,0%,100%,.6)}.forecast-card{display:flex;flex-direction:column;gap:.25rem;border-radius:1rem;border-width:1px;border-color:hsla(0,0%,100%,.1);background-color:hsla(0,0%,100%,.05);padding:.5rem .75rem;text-align:center;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.forecast-card:hover{background-color:hsla(0,0%,100%,.1)}@media (min-width:640px){.forecast-card{padding:.75rem 1rem}}.static{position:static}.mx-auto{margin-left:auto;margin-right:auto}.mb-3{margin-bottom:.75rem}.mt-1{margin-top:.25rem}.mt-4{margin-top:1rem}.flex{display:flex}.grid{display:grid}.h-5{height:1.25rem}.h-\[160px\]{height:160px}.h-full{height:100%}.h-screen{height:100vh}.max-h-\[95vh\]{max-height:95vh}.w-5{width:1.25rem}.w-full{width:100%}.max-w-7xl{max-width:80rem}.flex-1{flex:1 1 0%}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-white\/10{border-color:hsla(0,0%,100%,.1)}.bg-neutral-900\/20{background-color:hsla(0,0%,9%,.2)}.bg-neutral-950{--tw-bg-opacity:1;background-color:rgb(10 10 10/var(--tw-bg-opacity))}.bg-transparent{background-color:transparent}.bg-white\/10{background-color:hsla(0,0%,100%,.1)}.bg-white\/5{background-color:hsla(0,0%,100%,.05)}.p-3{padding:.75rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.text-left{text-align:left}.text-center{text-align:center}.font-display{font-family:Poppins,sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.capitalize{text-transform:capitalize}.tracking-\[0\.35em\]{letter-spacing:.35em}.tracking-tight{letter-spacing:-.025em}.tracking-wide{letter-spacing:.025em}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity))}.text-white\/60{color:hsla(0,0%,100%,.6)}.text-white\/70{color:hsla(0,0%,100%,.7)}.text-white\/80{color:hsla(0,0%,100%,.8)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}@media (max-width:640px){main.weather-shell{border-radius:1rem}}.placeholder\:text-white\/40::-moz-placeholder{color:hsla(0,0%,100%,.4)}.placeholder\:text-white\/40::placeholder{color:hsla(0,0%,100%,.4)}.focus-within\:border-white\/40:focus-within{border-color:hsla(0,0%,100%,.4)}.hover\:bg-white\/20:hover{background-color:hsla(0,0%,100%,.2)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}@media (min-width:640px){.sm\:ml-auto{margin-left:auto}.sm\:mt-5{margin-top:1.25rem}.sm\:h-\[180px\]{height:180px}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:flex-wrap{flex-wrap:wrap}.sm\:items-center{align-items:center}.sm\:justify-between{justify-content:space-between}.sm\:gap-2{gap:.5rem}.sm\:gap-3{gap:.75rem}.sm\:gap-4{gap:1rem}.sm\:gap-5{gap:1.25rem}.sm\:p-4{padding:1rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:py-4{padding-top:1rem;padding-bottom:1rem}.sm\:text-right{text-align:right}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:.875rem;line-height:1.25rem}.sm\:text-xs{font-size:.75rem;line-height:1rem}}@media (min-width:1024px){.lg\:h-\[200px\]{height:200px}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.lg\:grid-cols-\[minmax\(280px\2c 320px\)\2c 1fr\]{grid-template-columns:minmax(280px,320px) 1fr}.lg\:gap-4{gap:1rem}.lg\:gap-6{gap:1.5rem}.lg\:p-5{padding:1.25rem}.lg\:px-6{padding-left:1.5rem;padding-right:1.5rem}.lg\:py-5{padding-top:1.25rem;padding-bottom:1.25rem}.lg\:text-3xl{font-size:1.875rem;line-height:2.25rem}.lg\:text-6xl{font-size:3.75rem;line-height:1}.lg\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width:1280px){.xl\:p-6{padding:1.5rem}}@media (min-width:1280px){.xl\:h-\[360px\]{height:360px}}
+/* stylelint-enable property-no-vendor-prefix, declaration-block-no-redundant-longhand-properties */
+
+/* Custom styles for UI improvements */
+/* Add standard appearance property for compatibility with vendor-prefixed versions */
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    appearance: button;
+}
+input[type="search"] {
+    appearance: textfield;
+}
+input[type="search"]::-webkit-search-decoration {
+    appearance: none;
+}
+input[type="file"]::-webkit-file-upload-button {
+    appearance: button;
+}
+
+
+/* ============================================
+   Weather Background Images - Body & Main
+   ============================================ */
+
+/* Body background - full screen weather images */
+body.weather-body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Default body background (mist) */
+body.weather-body.mist,
+body.weather-body.haze,
+body.weather-body.smoke,
+body.weather-body.fog {
+    background-image: url('../img/mist.jpeg');
+}
+
+/* Cloudy conditions */
+body.weather-body.clouds,
+body.weather-body.cloudy,
+body.weather-body.few-clouds,
+body.weather-body.scattered-clouds,
+body.weather-body.broken-clouds,
+body.weather-body.overcast-clouds {
+    background-image: url('../img/cloudy.jpeg');
+}
+
+/* Sunny/Clear conditions */
+body.weather-body.sunny,
+body.weather-body.clear,
+body.weather-body.clear-sky {
+    background-image: url('../img/sunny.jpeg');
+}
+
+/* Overcast */
+body.weather-body.overcast {
+    background-image: url('../img/overcast.jpeg');
+}
+
+/* Rain conditions */
+body.weather-body.rain,
+body.weather-body.light-rain,
+body.weather-body.moderate-rain,
+body.weather-body.heavy-rain,
+body.weather-body.shower,
+body.weather-body.showers {
+    background-image: url('../img/rain.jpeg');
+}
+
+/* Drizzle */
+body.weather-body.drizzle {
+    background-image: url('../img/drizzle.jpeg');
+}
+
+/* Thunder */
+body.weather-body.thunder,
+body.weather-body.thundery {
+    background-image: url('../img/thunder.jpeg');
+}
+
+/* Snow conditions */
+body.weather-body.snow,
+body.weather-body.blizzard,
+body.weather-body.sleet {
+    background-image: url('../img/snow.jpeg');
+}
+
+/* Ice */
+body.weather-body.ice {
+    background-image: url('../img/ice.jpeg');
+}
+
+/* Main weather shell background images - ensure all conditions are covered */
+main.weather-shell.sunny,
+main.weather-shell.clear,
+main.weather-shell.clear-sky {
+    background-image: url('../img/sunny.jpeg');
+}
+
+main.weather-shell.overcast {
+    background-image: url('../img/overcast.jpeg');
+}
+
+main.weather-shell.rain,
+main.weather-shell.light-rain,
+main.weather-shell.moderate-rain,
+main.weather-shell.heavy-rain,
+main.weather-shell.shower,
+main.weather-shell.showers {
+    background-image: url('../img/rain.jpeg');
+}
+
+main.weather-shell.drizzle {
+    background-image: url('../img/drizzle.jpeg');
+}
+
+main.weather-shell.thunder,
+main.weather-shell.thundery {
+    background-image: url('../img/thunder.jpeg');
+}
+
+main.weather-shell.snow,
+main.weather-shell.blizzard,
+main.weather-shell.sleet {
+    background-image: url('../img/snow.jpeg');
+}
+
+main.weather-shell.ice {
+    background-image: url('../img/ice.jpeg');
+}
+
+/* Reduce dark overlay on main.weather-shell::after for better image visibility */
+main.weather-shell::after {
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+    --tw-gradient-from: rgba(0, 0, 0, 0.15) var(--tw-gradient-from-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    --tw-gradient-to: transparent var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), rgba(0, 0, 0, 0.1) var(--tw-gradient-via-position), var(--tw-gradient-to);
+    --tw-gradient-to: rgba(0, 0, 0, 0.15) var(--tw-gradient-to-position);
+}
+
+/* Translucent scrollbars for mobile and tablet */
+.glass-panel::-webkit-scrollbar, section::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.glass-panel::-webkit-scrollbar-track, section::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+.glass-panel::-webkit-scrollbar-thumb, section::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+.glass-panel::-webkit-scrollbar-thumb:hover, section::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+/* Hide scrollbars on desktop (lg and above) */
+@media (min-width: 1024px) {
+    .glass-panel::-webkit-scrollbar, section::-webkit-scrollbar {
+        display: none;
+    }
+    .glass-panel, section {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+/* Firefox scrollbar styling */
+.glass-panel, section {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
+}
+@media (min-width: 1024px) {
+    .glass-panel, section {
+        scrollbar-width: none;
+    }
+}
+.overflow-y-hidden {
+    overflow-y: hidden !important;
+}
+.min-w-0 {
+    min-width: 0;
+}
+.flex-shrink-0 {
+    flex-shrink: 0;
+}
+/* Improved spacing for chart container */
+#chart {
+    display: block;
+    max-width: 100%;
+}
+/* Better form button responsiveness */
+form button {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+}
+/* Search button specific styling for better alignment */
+form button[type="submit"] {
+    font-size: 8px;
+    padding: 0.25rem 0.625rem;
+}
+@media (min-width: 640px) {
+    form button[type="submit"] {
+        font-size: 9px;
+        padding: 0.25rem 0.75rem;
+    }
+}
+@media (min-width: 1024px) {
+    form button[type="submit"] {
+        font-size: 10px;
+        padding: 0.25rem 0.875rem;
+    }
+}
+/* Smooth transitions for better UX */
+.forecast-card {
+    transition: all 0.2s ease-in-out;
+}
+/* Optimize chart container for laptop screens */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .glass-panel {
+        min-height: fit-content;
+    }
+    
+    /* Prevent horizontal overflow on body and main container for laptop */
+    body.weather-body {
+        overflow-x: hidden;
+    }
+    
+    main.weather-shell {
+        overflow-x: hidden;
+        max-width: 100%;
+        overflow-y: hidden;
+    }
+    
+    /* Fix scroll on laptop screens - right section */
+    main.weather-shell > section.flex.flex-col:not(.glass-panel) {
+        justify-content: flex-start;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        max-width: 100%;
+        min-width: 0;
+        max-height: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Ensure right section content fits */
+    main.weather-shell > section.flex.flex-col:not(.glass-panel) > div {
+        flex-shrink: 1;
+        min-height: 0;
+    }
+    
+    /* Ensure hourly outlook section fits without scroll */
+    main.weather-shell section.rounded-3xl {
+        max-width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        min-width: 0;
+    }
+    
+    /* Reduce padding in all rounded sections for laptop */
+    main.weather-shell section.rounded-3xl[class*="p-"] {
+        padding: 0.75rem !important;
+    }
+    
+    /* Reduce padding in weather forecast section too */
+    main.weather-shell > section.flex.flex-col:not(.glass-panel) > div.rounded-3xl[class*="p-"] {
+        padding: 0.75rem !important;
+    }
+    
+    /* Reduce gap between sections for laptop - target right section */
+    main.weather-shell > section.flex.flex-col:not(.glass-panel)[class*="gap-"] {
+        gap: 0.75rem !important;
+    }
+    
+    /* Reduce gap inside weather forecast section */
+    main.weather-shell > section.flex.flex-col:not(.glass-panel) > div.rounded-3xl[class*="gap-"] {
+        gap: 0.75rem !important;
+    }
+    
+    /* Reduce margin bottom on hourly outlook header */
+    main.weather-shell section.rounded-3xl > div[class*="mb-"] {
+        margin-bottom: 0.375rem !important;
+    }
+    
+    /* Reduce margin bottom on forecast cards list */
+    main.weather-shell ul.grid[class*="mb-"] {
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* Reduce gap in forecast cards grid for laptop */
+    main.weather-shell ul.grid[class*="gap-"] {
+        gap: 0.5rem !important;
+    }
+    
+    /* Reduce chart container height for laptop screens - override lg:h-[320px] */
+    .rounded-3xl > div.w-full[class*="h-"] {
+        height: 140px !important;
+        max-height: 140px !important;
+        min-height: 140px !important;
+    }
+    
+    /* Reduce forecast card text sizes slightly for laptop to save space */
+    main.weather-shell ul.grid li.forecast-card p.text-2xl,
+    main.weather-shell ul.grid li.forecast-card p.sm\:text-3xl {
+        font-size: 1.5rem !important;
+        line-height: 1.75rem !important;
+    }
+    
+    /* Chart container width fix for laptop */
+    #chart {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box;
+        height: 100% !important;
+        display: block;
+    }
+    
+    /* Chart parent container - ensure it doesn't overflow */
+    .rounded-3xl > div.w-full[class*="h-"] {
+        max-width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        box-sizing: border-box;
+    }
+    
+    /* Forecast cards grid - ensure it fits */
+    ul.grid {
+        max-width: 100%;
+        overflow-x: hidden;
+        min-width: 0;
+    }
+}
+
+/* ============================================
+   Premium Animations and Page Load Effects
+   ============================================ */
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation Utility Classes */
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+.animate-bounce-in {
+    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* Critical fix: Ensure temperature stays visible after animation completes */
+.animate-bounce-in.animate-delay-400 {
+    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s forwards;
+}
+
+/* Fallback: Force visibility after animation should complete (1.5s = 400ms delay + 800ms duration + 300ms buffer) */
+@keyframes forceVisible {
+    to {
+        opacity: 1 !important;
+    }
+}
+
+.animate-bounce-in.animate-delay-400 {
+    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s forwards,
+                forceVisible 0.01s 1.5s forwards;
+}
+
+/* JavaScript fallback class - ensures visibility if animation fails */
+.animate-bounce-in.animation-complete {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    animation: none !important;
+}
+
+/* Stagger Animation Delays */
+.animate-delay-100 {
+    animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+    animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+    animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+    animation-delay: 400ms;
+}
+
+.animate-delay-500 {
+    animation-delay: 500ms;
+}
+
+.animate-delay-600 {
+    animation-delay: 600ms;
+}
+
+.animate-delay-700 {
+    animation-delay: 700ms;
+}
+
+/* Enhanced Transitions */
+.forecast-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, background-color;
+}
+
+.forecast-card:hover {
+    transform: translateY(-2px);
+    background-color: hsla(0, 0%, 100%, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced Button Animations */
+form button[type="submit"] {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, background-color;
+}
+
+form button[type="submit"]:hover {
+    transform: scale(1.05);
+    background-color: hsla(0, 0%, 100%, 0.25);
+}
+
+form button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Enhanced Form Input Transitions */
+input[type="text"] {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type="text"]:focus {
+    transform: scale(1.01);
+}
+
+/* Chart Container Animation */
+#chart {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.6s forwards;
+}
+
+/* Main Container Animation */
+.weather-shell {
+    animation: scaleIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+/* Respect Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .animate-fade-in,
+    .animate-slide-in-left,
+    .animate-slide-in-right,
+    .animate-slide-up,
+    .animate-scale-in,
+    .animate-fade-in-up,
+    .animate-bounce-in {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    #chart {
+        opacity: 1 !important;
+        animation: none !important;
+    }
+    
+    .weather-shell {
+        opacity: 1 !important;
+        animation: none !important;
+    }
+}
+
+/* City Autocomplete Suggestions Styles */
+.city-suggestions {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+    /* Ensure it doesn't affect layout */
+    position: absolute !important;
+    /* Smooth scroll behavior */
+    scroll-behavior: smooth;
+    /* Ensure visibility when shown */
+    visibility: visible;
+    opacity: 1;
+    /* Enhanced glass effect for better text visibility */
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.city-suggestions::-webkit-scrollbar {
+    width: 6px;
+}
+
+.city-suggestions::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.city-suggestions::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.city-suggestions::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.suggestion-item {
+    transition: all 0.15s ease;
+    /* Better text contrast */
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 500;
+}
+
+.suggestion-item:first-child {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.suggestion-item:last-child {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border-bottom: none !important;
+}
+
+.suggestion-item:hover,
+.suggestion-item.bg-white\/10 {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 1) !important;
+}
