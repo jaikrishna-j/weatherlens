@@ -14,8 +14,7 @@ from sklearn.model_selection import train_test_split  #To splitting data into tr
 from sklearn.preprocessing import LabelEncoder  #To convert categorical data into numerical values
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor  #Models for classification & Regression task
 from sklearn.metrics import mean_squared_error  #To measure the accuracy of our predictions
-from datetime import datetime, timedelta  #To handle data and time
-import pytz
+from datetime import datetime, timedelta, timezone  #To handle data and time
 
 from .models import SearchHistory
 
@@ -61,6 +60,7 @@ def get_current_weather(city):
       'Wind_Gust_Speed': data.get('wind', {}).get('speed', 0),
       'clouds' : data.get('clouds', {}).get('all', 0),
       'Visibility' : data.get('visibility', 10000),
+      'timezone_offset': data.get('timezone', 0),
   }
 
 #2. Read Historical Data
@@ -218,12 +218,12 @@ def weather_view(request):
 
         #Prepare time for future predictions
 
-        timezone = pytz.timezone('Asia/Kolkata')
-        now = datetime.now(timezone)
-        next_hour = now + timedelta(hours=1)
-        next_hour = next_hour.replace(minute=0, second=0, microsecond=0)
+        timezone_offset = int(current_weather.get('timezone_offset', 0) or 0)
+        city_timezone = timezone(timedelta(seconds=timezone_offset))
+        city_now = datetime.now(city_timezone)
+        next_hour = (city_now + timedelta(hours=1)).replace(minute=0, second=0, microsecond=0)
 
-        future_times = [(next_hour + timedelta(hours=i)).strftime("%H:00") for i in range(5)]
+        future_times = [(next_hour + timedelta(hours=i)).strftime("%H:%M") for i in range(5)]
 
 
         #Store each value seperately to send to template
@@ -253,8 +253,8 @@ def weather_view(request):
           'city' : current_weather['city'],
           'country' : current_weather['country'],
 
-          'time' : datetime.now(),
-          'date' : datetime.now().strftime("%B %d, %Y"),
+          'time' : city_now.strftime("%b %d, %Y; %I:%M %p"),
+          'date' : city_now.strftime("%B %d, %Y"),
 
           'wind' : current_weather['Wind_Gust_Speed'],
           'pressure' : current_weather['pressure'],
