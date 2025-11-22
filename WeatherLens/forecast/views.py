@@ -3,6 +3,8 @@ import os
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.shortcuts import render
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 import requests   # This library helps us to fetch data from API
@@ -285,7 +287,9 @@ def weather_view(request):
     return render(request, 'weather.html')
 
 
+@csrf_exempt
 def health_check(request):
     """Simple health check endpoint for Render to verify the app is ready."""
-    from django.http import JsonResponse
-    return JsonResponse({'status': 'ok', 'service': 'weatherlens'})
+    # Return a simple JSON response with 200 status
+    # This endpoint is exempt from CSRF for automated health checks
+    return JsonResponse({'status': 'ok', 'service': 'weatherlens'}, status=200)
