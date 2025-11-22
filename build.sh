@@ -14,7 +14,7 @@ echo "Collecting static files..."
 $PYTHON_BIN WeatherLens/manage.py collectstatic --noinput
 
 echo "Ensuring admin user exists..."
-$PYTHON_BIN WeatherLens/manage.py bootstrap_superuser
+$PYTHON_BIN WeatherLens/manage.py bootstrap_superuser || echo "Superuser creation skipped (may already exist)"
 
 echo "Build steps completed."
 

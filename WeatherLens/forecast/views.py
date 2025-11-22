@@ -283,3 +283,9 @@ def weather_view(request):
         return render(request, 'weather.html', context)
     
     return render(request, 'weather.html')
+
+
+def health_check(request):
+    """Simple health check endpoint for Render to verify the app is ready."""
+    from django.http import JsonResponse
+    return JsonResponse({'status': 'ok', 'service': 'weatherlens'})
