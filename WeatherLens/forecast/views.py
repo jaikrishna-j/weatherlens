@@ -290,6 +290,4 @@ def weather_view(request):
 @csrf_exempt
 def health_check(request):
     """Simple health check endpoint for Render to verify the app is ready."""
-    # Return a simple JSON response with 200 status
-    # This endpoint is exempt from CSRF for automated health checks
     return JsonResponse({'status': 'ok', 'service': 'weatherlens'}, status=200)
