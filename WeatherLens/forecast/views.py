@@ -1,22 +1,20 @@
 import os
-
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-# Create your views here.
-import requests   # This library helps us to fetch data from API
-import pandas as pd   #For handling data & analysing data
-import numpy as np  #For numerical operations
-import matplotlib.pyplot as plt  #For data visualization
-import seaborn as sns  #For data visualization
-from sklearn.model_selection import train_test_split  #To splitting data into training & testing sets
-from sklearn.preprocessing import LabelEncoder  #To convert categorical data into numerical values
-from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor  #Models for classification & Regression task
-from sklearn.metrics import mean_squared_error  #To measure the accuracy of our predictions
-from datetime import datetime, timedelta, timezone  #To handle data and time
+import requests
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor 
+from sklearn.metrics import mean_squared_error 
+from datetime import datetime, timedelta, timezone 
 
 from .models import SearchHistory
 
