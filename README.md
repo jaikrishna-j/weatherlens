@@ -75,11 +75,3 @@ Weather Prediction.ipynb
 ```
 
 Modify preprocessing, visualize trends, retrain, and test new predictions.
-
-## Live Deployment
-
-WeatherLens is deployed on Render:
-
-**https://weatherlens-zqot.onrender.com**
-
-
