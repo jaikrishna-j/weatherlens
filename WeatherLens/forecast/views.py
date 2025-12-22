@@ -16,7 +16,6 @@ from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.metrics import mean_squared_error 
 from datetime import datetime, timedelta, timezone 
 
-from .models import SearchHistory
 
 BASE_URL = 'https://api.openweathermap.org/data/2.5/' #Base url for making API requests
 
@@ -230,15 +229,6 @@ def weather_view(request):
         time1, time2, time3, time4, time5 = future_times
         temp1, temp2, temp3, temp4, temp5 = future_temp
         hum1, hum2, hum3, hum4, hum5 = future_humidity
-
-        #Record search history for analytics
-        SearchHistory.objects.create(
-            city=current_weather['city'],
-            user=request.user if request.user.is_authenticated else None,
-            temperature=current_weather['current_temp'],
-            humidity=current_weather['humidity'],
-            description=current_weather['description'],
-        )
 
         #Pass data to template
         context = {

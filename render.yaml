@@ -26,27 +26,4 @@ services:
         value: "1234"
       - key: ADMIN_EMAIL
         value: "admin@example.com"
-      - key: POSTGRES_DB
-        fromDatabase:
-          name: weatherlens-postgres
-          property: database
-      - key: POSTGRES_USER
-        fromDatabase:
-          name: weatherlens-postgres
-          property: user
-      - key: POSTGRES_PASSWORD
-        fromDatabase:
-          name: weatherlens-postgres
-          property: password
-      - key: POSTGRES_HOST
-        fromDatabase:
-          name: weatherlens-postgres
-          property: host
-      - key: POSTGRES_PORT
-        fromDatabase:
-          name: weatherlens-postgres
-          property: port
-databases:
-  - name: weatherlens-postgres
-    plan: free
 
