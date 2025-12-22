@@ -2,7 +2,7 @@
 
 WeatherLens is a machine-learning powered weather prediction system built primarily inside **Weather Prediction.ipynb**. The notebook handles the full ML workflow, including data preprocessing, visualization, feature encoding, and model training using Random Forest algorithms. Django is used only to display the predictions in a clean, user-friendly web interface so users can easily understand the results. 
 
-Live demo: **https://weatherlens-zqot.onrender.com**
+Live demo: **https://weatherlens-forecast.onrender.com**
 
 ## Machine Learning Workflow
 
